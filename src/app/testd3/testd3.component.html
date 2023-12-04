@@ -1,0 +1,11 @@
+<header>
+    <h3> Basic D3 Experiment</h3>
+    <div class="header-buttons">
+        <button (click)="multipleCharts()">D3 multiple pages</button>
+        <button (click)="navigateToOtherComponent()">D3 Animation</button>
+    </div>
+</header>
+<app-bar *ngIf="!multipleChart"></app-bar>
+<app-pie *ngIf="!multipleChart"></app-pie>
+<app-scatter *ngIf="!multipleChart"></app-scatter>
+<app-bar2 *ngIf="multipleChart" chartName="pieA" [data]="chartData_2D_1"></app-bar2>

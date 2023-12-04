@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Chartdata } from './interface/chartdata';
 
 @Component({
   selector: 'app-root',
@@ -15,4 +16,5 @@ export class AppComponent implements OnInit {
     const navLinks = document.getElementById('navLinks') as HTMLElement;
     navLinks.classList.toggle('show');
   }
+
 }
