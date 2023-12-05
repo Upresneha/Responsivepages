@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { Testd3Component } from './testd3/testd3.component';
 import { ObservableComponent } from './observable/observable.component';
 import { AnimationComponent } from './animation/animation.component';
+import { DonutComponent } from './donut/donut.component';
 
 const routes: Routes = [
   {
@@ -16,6 +17,10 @@ const routes: Routes = [
   {
     path: "animation",
     component: AnimationComponent,
+  },
+  {
+    path: "donut",
+    component: DonutComponent,
   },
 
 ];
