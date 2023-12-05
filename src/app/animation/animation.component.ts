@@ -33,8 +33,6 @@ export class AnimationComponent {
     this.drawBars(this.data);
     this.drawHistogram(this.data)
 
-
-
   }
 
   private createSvg(): void {
@@ -47,13 +45,13 @@ export class AnimationComponent {
   }
 
   private drawBars(data: any[]): void {
-    // Create the X-axis band scale
+    //  the X-axis band scale
     const x = d3.scaleBand()
       .range([0, this.width])
       .domain(data.map(d => d.Framework))
       .padding(0.2);
 
-    // Draw the X-axis on the DOM
+    // the X-axis on the DOM
     this.svg.append("g")
       .attr("transform", "translate(0," + this.height + ")")
       .call(d3.axisBottom(x))
@@ -86,7 +84,6 @@ export class AnimationComponent {
       .attr("height", (d: any) => this.height - y(d.Stars));
   }
 
-  // Assuming you already have the createSvg and drawBars methods
 
   private drawHistogram(data: any[]): void {
 
@@ -96,13 +93,13 @@ export class AnimationComponent {
       .attr("height", this.height + (this.margin * 2))
       .append("g")
       .attr("transform", "translate(" + this.margin + "," + this.margin + ")");
-    // Create the X-axis band scale
+    //  the X-axis band scale
     const x = d3.scaleBand()
       .range([0, this.width])
       .domain(data.map(d => d.Framework))
       .padding(0.2);
 
-    // Draw the X-axis on the DOM
+    //  X-axis on the DOM
     this.svg.append("g")
       .attr("transform", "translate(0," + this.height + ")")
       .call(d3.axisBottom(x))
@@ -110,16 +107,16 @@ export class AnimationComponent {
       .attr("transform", "translate(-10,0)rotate(-45)")
       .style("text-anchor", "end");
 
-    // Create the Y-axis linear scale
+    //  Y-axis linear scale
     const y = d3.scaleLinear()
       .domain([0, d3.min(data, (d: any) => d.Stars)])
       .range([this.height, 0]);
 
-    // Draw the Y-axis on the DOM
+    //  Y-axis on the DOM
     this.svg.append("g")
       .call(d3.axisLeft(y));
 
-    // Create and fill the bars
+    //  fill the bars
     this.svg.selectAll("rect")
       .data(data)
       .enter()
@@ -128,8 +125,8 @@ export class AnimationComponent {
       .attr("width", x.bandwidth())
       .attr("height", (d: any) => this.height - y(d.Stars))
       .attr("fill", "#d04a68")
-      .transition() // Add a transition for smooth animations
-      .duration(1000) // Set the duration of the animation in milliseconds
+      .transition()
+      .duration(1000)
       .attr("y", (d: any) => y(d.Stars))
       .attr("height", (d: any) => this.height - y(d.Stars));
   }

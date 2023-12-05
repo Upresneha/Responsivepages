@@ -19,7 +19,6 @@ export class PieComponent implements OnInit {
   private margin = 50;
   private width = 750;
   private height = 600;
-  // The radius of the pie chart is half the smallest side
   private radius = Math.min(this.width, this.height) / 2 - this.margin;
   private colors!: any
 
@@ -47,7 +46,6 @@ export class PieComponent implements OnInit {
   }
 
   private drawChart(): void {
-    // Compute the position of each group on the pie:
     const pie = d3.pie<any>().value((d: any) => Number(d.Stars));
 
     // Build the pie chart

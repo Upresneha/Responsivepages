@@ -69,7 +69,6 @@ export class DonutComponent {
     const bluesColorScale = d3.scaleSequential(d3.interpolateBlues)
       .domain([0, this.data.length]);
 
-    // ... (existing code)
 
     arcs.append('path')
 

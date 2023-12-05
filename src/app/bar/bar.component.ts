@@ -50,13 +50,13 @@ export class BarComponent implements OnInit {
   }
 
   private drawBars(data: any[]): void {
-    // Create the X-axis band scale
+    //  X-axis band scale
     const x = d3.scaleBand()
       .range([0, this.width])
       .domain(data.map(d => d.Framework))
       .padding(0.2);
 
-    // Draw the X-axis on the DOM
+    //  X-axis on the DOM
     this.svg.append("g")
       .attr("transform", "translate(0," + this.height + ")")
       .call(d3.axisBottom(x))
@@ -64,16 +64,16 @@ export class BarComponent implements OnInit {
       .attr("transform", "translate(-10,0)rotate(-45)")
       .style("text-anchor", "end");
 
-    // Create the Y-axis band scale
+    //  Y-axis band scale
     const y = d3.scaleLinear()
       .domain([0, 200000])
       .range([this.height, 0]);
 
-    // Draw the Y-axis on the DOM
+    //  the Y-axis on the DOM
     this.svg.append("g")
       .call(d3.axisLeft(y));
 
-    // Create and fill the bars
+    // fill the bars
     this.svg.selectAll("bars")
       .data(data)
       .enter()

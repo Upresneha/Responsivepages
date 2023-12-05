@@ -31,14 +31,14 @@ export class Bar2Component {
   }
 
   private drawBars(data: Chartdata): void {
-    // Create the X-axis band scale
+    //  X-axis band scale
     const x = d3
       .scaleBand()
       .range([0, this.width])
       .domain(data.lineData.map((d: LineData) => d.label))
       .padding(0.2);
 
-    // Draw the X-axis on the DOM
+    //  X-axis on the DOM
     this.svg
       .append('g')
       .attr('transform', 'translate(0,' + this.height + ')')
@@ -47,13 +47,13 @@ export class Bar2Component {
       .attr('transform', 'translate(-10,0)rotate(-45)')
       .style('text-anchor', 'end');
 
-    // Create the Y-axis band scale
+    //  Y-axis band scale
     const y = d3.scaleLinear().domain([0, data.yrange]).range([this.height, 0]);
 
-    // Draw the Y-axis on the DOM
+    //  Y-axis on the DOM
     this.svg.append('g').call(d3.axisLeft(y));
 
-    // Create and fill the bars
+    // fill the bars
     this.svg
       .selectAll('bars')
       .data(data.lineData)
