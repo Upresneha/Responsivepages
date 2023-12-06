@@ -11,6 +11,7 @@ import { Bar2Component } from './bar2/bar2.component';
 import { ObservableComponent } from './observable/observable.component';
 import { AnimationComponent } from './animation/animation.component';
 import { DonutComponent } from './donut/donut.component';
+import { ChartsComponent } from './charts/charts.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { DonutComponent } from './donut/donut.component';
     Bar2Component,
     ObservableComponent,
     AnimationComponent,
-    DonutComponent
+    DonutComponent,
+    ChartsComponent
   ],
   imports: [
     BrowserModule,

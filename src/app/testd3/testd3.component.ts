@@ -20,6 +20,11 @@ export class Testd3Component {
     this.router.navigate(['/animation']);
   }
 
+  navigateToResponsive() {
+    // Navigate to another component (assuming there's a route configured for it)
+    this.router.navigate(['/charts']);
+  }
+
   multipleCharts() {
     this.multipleChart = true
 

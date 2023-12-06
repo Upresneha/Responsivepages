@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, ElementRef, Input, ViewChild } from '@angular/core';
 import * as d3 from 'd3';
 
 
@@ -8,6 +8,9 @@ import * as d3 from 'd3';
   styleUrls: ['./animation.component.css']
 })
 export class AnimationComponent {
+
+  @ViewChild('chart', { static: true })
+  private chartContainer?: ElementRef;
 
 
   private data = [
@@ -27,11 +30,16 @@ export class AnimationComponent {
   private margin = 50;
   private width = 750 - (this.margin * 2);
   private height = 400 - (this.margin * 2);
+  private margin2: { top: number, bottom: number, left: number; right: number } = { top: 20, bottom: 30, left: 30, right: 20 };
+  private readonly xScale!: d3.ScaleLinear<number, number, never>;
+  private readonly yScale!: d3.ScaleLinear<number, number, never>;
+  private readonly data2!: Array<{ x: number; y: number }>;
 
   ngOnInit(): void {
     this.createSvg();
     this.drawBars(this.data);
     this.drawHistogram(this.data)
+
 
   }
 
@@ -131,4 +139,8 @@ export class AnimationComponent {
       .attr("height", (d: any) => this.height - y(d.Stars));
   }
 
+
+
 }
+
+
